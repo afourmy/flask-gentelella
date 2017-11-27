@@ -22,7 +22,7 @@ Gentelella Admin is a free to use Bootstrap admin template.
     cd gentelella
     python app.py
     
-### 4. Go the http://localhost:8000/
+### 4. Go the http://localhost:5000/
 
 ## Scripts included:
 
