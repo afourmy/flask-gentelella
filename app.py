@@ -27,13 +27,17 @@ def route_template(template):
 
 ## Errors
 
-@app.errorhandler(500)
-def internal_error(error):
-    return render_template('errors/500.html'), 500
+@app.errorhandler(403)
+def not_found_error(error):
+    return render_template('page_403.html'), 403
 
 @app.errorhandler(404)
 def not_found_error(error):
-    return render_template('errors/404.html'), 404
+    return render_template('page_404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('page_500.html'), 500
 
 ## Logs
 
