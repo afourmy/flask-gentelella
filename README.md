@@ -1,14 +1,29 @@
-# gentelella
+# Gentelella
 
 Gentelella Admin is a free to use Bootstrap admin template.
-
-## Theme Demo
 
 ![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")
 
 **[Template Demo](https://colorlib.com/polygon/gentelella/index.html)**
 
+## Installation
+
+### (Optional) Set up a virtual environment
+[Python official doc on virtual environments](https://docs.python.org/3/library/venv.html) 
+
+### Get the code
+    git clone https://github.com/afourmy/flask-gentelella.git
+    cd flask-gentelella
+
+### Install requirements 
+    pip install -r requirements.txt
+
+### Run the code
+    cd gentelella
+    python app.py
+
 ## Scripts included:
+
 * Bootstrap
 * Font Awesome
 * jQuery-Autocomplete
@@ -47,6 +62,7 @@ Gentelella Admin is a free to use Bootstrap admin template.
 * jQuery Smart Wizard
 
 ## Other templates and useful resources
+
 * [Free Bootstrap Admin Templates](https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/ "Bootstrap Admin Templates on Colorlib") - List of the best Free Bootstrap admin dashboard templates that are available for free for personal and commercial use.
 * [Free Admin Templates](https://colorlib.com/wp/free-html5-admin-dashboard-templates/ "List of free HTML based admin templates by Colorlib") - Long list of the best free HTML5 powered admin dashboard templates. Available for personal and commercial use.
 * [Angular Templates](https://colorlib.com/wp/angularjs-admin-templates/ "Angular Admin Templates on Colorlib") - List of the most popular admin templates based on AngularJS.
