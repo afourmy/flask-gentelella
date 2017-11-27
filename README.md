@@ -11,18 +11,18 @@ Gentelella Admin is a free to use Bootstrap admin template.
 ### (Optional) Set up a virtual environment
 [Python official doc on virtual environments](https://docs.python.org/3/library/venv.html) 
 
-### Get the code
+### 1. Get the code
     git clone https://github.com/afourmy/flask-gentelella.git
     cd flask-gentelella
 
-### Install requirements 
+### 2. Install requirements 
     pip install -r requirements.txt
 
-### Run the code
+### 3. Run the code
     cd gentelella
     python app.py
     
-### Go the http://localhost:8000/
+### 4. Go the http://localhost:8000/
 
 ## Scripts included:
 
@@ -72,3 +72,13 @@ Gentelella Admin is a free to use Bootstrap admin template.
 * [Bootstrap Admin Templates](https://colorlib.com/wp/bootstrap-admin-templates/ "List of Premium Bootstrap Admin Templates by Colorlib") - List of premium Bootstrap admin templates that uses a minimal flat or material design. Majority of these themes uses AngularJS but HTML5 versions are also available.
 * [WordPress Admin Templates](https://colorlib.com/wp/wordpress-admin-dashboard-themes-plugins/ "List of WordPress Admin Dashboard Templates and Plugins by Colorlib") - List of the best WordPress admin dashboard templates and plugins that will add a personal touch to your WordPress dashboard.
 * [WordPress Themes](https://colorlib.com/wp/free-wordpress-themes/ "List of Free WordPress themes by Colorlib") - A huge selection of the best free WordPress themes that are all licensed under GPL and are available for personal and commercial use without restrictions.
+
+# Contact
+
+You can contact me at my personal email address:
+```
+''.join(map(chr, (97, 110, 116, 111, 105, 110, 101, 46, 102, 111, 
+117, 114, 109, 121, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109)))
+```
+
+or on the [Network to Code slack](http://networktocode.herokuapp.com "Network to Code slack"). (@minto, channel #pynms)
