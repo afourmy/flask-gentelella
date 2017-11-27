@@ -1,1 +1,3 @@
 flask
+flask_wtf
+flask_sqlalchemy

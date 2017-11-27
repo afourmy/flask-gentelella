@@ -1,18 +1,18 @@
 from flask import Flask, render_template
-# from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from logging import Formatter, FileHandler
 import logging
 import os
 
 app = Flask(__name__)
 app.config.from_object('config')
-# db = SQLAlchemy(app)
+db = SQLAlchemy(app)
 
 ## Tear down SQLAlchemy 
 
-# @app.teardown_request
-# def shutdown_session(exception=None):
-#     db.session.remove()
+@app.teardown_request
+def shutdown_session(exception=None):
+    db.session.remove()
 
 ## Route to any template
 
@@ -22,7 +22,6 @@ def index():
 
 @app.route('/<template>')
 def route_template(template):
-    print(template)
     return render_template(template)
 
 ## Errors
