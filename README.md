@@ -21,6 +21,8 @@ Gentelella Admin is a free to use Bootstrap admin template.
 ### Run the code
     cd gentelella
     python app.py
+    
+### Go the http://localhost:8000/
 
 ## Scripts included:
 
