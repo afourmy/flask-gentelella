@@ -5,13 +5,13 @@
 {% block stylesheets %}
   {{ super() }}
   <!-- Ion.RangeSlider -->
-  <link href="/static/vendors/normalize-css/normalize.css" rel="stylesheet">
-  <link href="/static/vendors/ion.rangeSlider/css/ion.rangeSlider.css" rel="stylesheet">
-  <link href="/static/vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/normalize-css/normalize.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/ion.rangeSlider/css/ion.rangeSlider.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/ion.rangeSlider/css/ion.rangeSlider.skinFlat.css') }}" rel="stylesheet">
   <!-- Bootstrap Colorpicker -->
-  <link href="/static/vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet">
 
-  <link href="/static/vendors/cropper/dist/cropper.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/cropper/dist/cropper.min.css') }}" rel="stylesheet">
 {% endblock stylesheets %}
 
 {% block content %}
@@ -931,13 +931,13 @@
 {% block javascripts %}
   {{ super()}}
   <!-- Ion.RangeSlider -->
-  <script src="/static/vendors/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/ion.rangeSlider/js/ion.rangeSlider.min.js') }}"></script>
   <!-- Bootstrap Colorpicker -->
-  <script src="/static/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
   <!-- jquery.inputmask -->
-  <script src="/static/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js') }}"></script>
   <!-- jQuery Knob -->
-  <script src="/static/vendors/jquery-knob/dist/jquery.knob.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/jquery-knob/dist/jquery.knob.min.js') }}"></script>
   <!-- Cropper -->
-  <script src="/static/vendors/cropper/dist/cropper.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/cropper/dist/cropper.min.js') }}"></script>
 {% endblock javascripts %}

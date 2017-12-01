@@ -211,6 +211,6 @@
 {% block javascripts %}
   {{ super() }}
   <!-- morris.js -->
-  <script src="/static/vendors/raphael/raphael.min.js"></script>
-  <script src="/static/vendors/morris.js/morris.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/raphael/raphael.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/morris.js/morris.min.js') }}"></script>
 {% endblock javascripts %}

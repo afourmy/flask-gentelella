@@ -140,5 +140,5 @@
 {% block javascripts %}
   {{ super() }}
   <!-- validator -->
-  <script src="/static/vendors/validator/validator.js"></script>
+  <script src="{{ url_for('static', filename='vendors/validator/validator.js') }}"></script>
 {% endblock javascripts %}

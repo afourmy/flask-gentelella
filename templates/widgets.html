@@ -622,9 +622,9 @@
 {% block javascripts %}
   {{ super() }}
   <!-- Chart.js -->
-  <script src="/static/vendors/Chart.js/dist/Chart.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/Chart.js/dist/Chart.min.js') }}"></script>
   <!-- jQuery Sparklines -->
-  <script src="/static/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
   <!-- easy-pie-chart -->
-  <script src="/static/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js') }}"></script>
 {% endblock javascripts %}

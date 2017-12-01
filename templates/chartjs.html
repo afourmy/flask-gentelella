@@ -202,5 +202,5 @@
 {% block javascripts %}
   {{ super() }}
     <!-- Chart.js -->
-    <script src="/static/vendors/Chart.js/dist/Chart.min.js"></script>
+    <script src="{{ url_for('static', filename='vendors/Chart.js/dist/Chart.min.js') }}"></script>
 {% endblock javascripts %}

@@ -4,9 +4,9 @@
 
 {% block stylesheets %}
   {{ super() }}
-  <link href="/static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
-  <link href="/static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-  <link href="/static/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/pnotify/dist/pnotify.buttons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/pnotify/dist/pnotify.nonblock.css') }}" rel="stylesheet">
 {% endblock stylesheets %}
 
 {% block content %}
@@ -1351,7 +1351,7 @@
 {% block javascripts %}
   {{ super() }}
   <!-- PNotify -->
-  <script src="/static/vendors/pnotify/dist/pnotify.js"></script>
-  <script src="/static/vendors/pnotify/dist/pnotify.buttons.js"></script>
-  <script src="/static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+  <script src="{{ url_for('static', filename='vendors/pnotify/dist/pnotify.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/pnotify/dist/pnotify.buttons.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/pnotify/dist/pnotify.nonblock.js') }}"></script>
 {% endblock javascripts %}

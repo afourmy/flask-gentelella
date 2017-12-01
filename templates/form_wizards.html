@@ -315,5 +315,5 @@
 {% block javascripts %}
   {{ super()}}
   <!-- jQuery Smart Wizard -->
-  <script src="/static/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+  <script src="{{ url_for('static', filename='vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
 {% endblock javascripts %}

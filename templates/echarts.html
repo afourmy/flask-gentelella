@@ -386,6 +386,6 @@
 {% block javascripts %}
   {{ super() }}
   <!-- ECharts -->
-  <script src="/static/vendors/echarts/dist/echarts.min.js"></script>
-  <script src="/static/vendors/echarts/map/js/world.js"></script>
+  <script src="{{ url_for('static', filename='vendors/echarts/dist/echarts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/echarts/map/js/world.js') }}"></script>
 {% endblock javascripts %}

@@ -5,7 +5,7 @@
 {% block stylesheets %}
   {{ super() }}
   <!-- Dropzone.js -->
-  <link href="/static/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendors/dropzone/dist/min/dropzone.min.css') }}" rel="stylesheet">
 {% endblock stylesheets %}
 
 {% block content %}
@@ -70,5 +70,5 @@
 {% block javascripts %}
   {{ super() }}
   <!-- Dropzone.js -->
-  <script src="/static/vendors/dropzone/dist/min/dropzone.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/dropzone/dist/min/dropzone.min.js') }}"></script>
 {% endblock javascripts %}

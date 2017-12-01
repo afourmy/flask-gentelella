@@ -166,12 +166,12 @@
 {% block javascripts %}
   {{ super() }}
   <!-- jQuery Sparklines -->
-  <script src="/static/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
   <!-- JQVMap -->
-  <script src="/static/vendors/jqvmap/dist/jquery.vmap.js"></script>
-  <script src="/static/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-  <script src="/static/vendors/jqvmap/dist/maps/jquery.vmap.usa.js"></script>
-  <script src="/static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+  <script src="{{ url_for('static', filename='vendors/jqvmap/dist/jquery.vmap.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/jqvmap/dist/maps/jquery.vmap.usa.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/jqvmap/examples/js/jquery.vmap.sampledata.js') }}"></script>
   <!-- easy-pie-chart -->
-  <script src="/static/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+  <script src="{{ url_for('static', filename='vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js') }}"></script>
 {% endblock javascripts %}
