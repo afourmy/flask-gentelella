@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from importlib import import_module
 from logging import Formatter, FileHandler
 import logging
 import os
@@ -7,6 +8,11 @@ import os
 app = Flask(__name__)
 app.config.from_object('config')
 db = SQLAlchemy(app)
+
+path_source = os.path.dirname(os.path.abspath(__file__))
+for module_name in ('forms', 'UI_elements'):
+    module = import_module('{}.routes'.format(module_name))
+    app.register_blueprint(module.blueprint)
 
 ## Tear down SQLAlchemy 
 
