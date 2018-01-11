@@ -40,13 +40,13 @@
 
           {% block sidebar %}
             <div class="col-md-3 left_col {% block sidebar_class %} {% endblock sidebar_class %}">
-              {% include "sidebar.html" %}
+              {% include "site_template/sidebar.html" %}
             </div>
           {% endblock sidebar %}
 
           {% block top_navigation %}
             <div class="top_nav">
-              {% include "top_navigation.html" %}
+              {% include "site_template/top_navigation.html" %}
             </div>
           {% endblock top_navigation %}
 
@@ -56,7 +56,7 @@
 
           {% block footer %}
             <footer>
-              {% include "footer.html" %}
+              {% include "site_template/footer.html" %}
             </footer>
           {% endblock footer %}
         </div>

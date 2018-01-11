@@ -3,25 +3,33 @@ from flask import Blueprint, render_template
 blueprint = Blueprint(
     'base_blueprint', 
     __name__, 
-    url_prefix = '/base', 
+    url_prefix = '', 
     template_folder = 'templates',
     static_folder = 'static'
     )
 
 @blueprint.route('/<template>')
 def route_template(template):
-    return render_template(template)
+    return render_template(template + '.html')
+
+@blueprint.route('/fixed_<template>')
+def route_fixed_template(template):
+    return render_template('fixed/fixed_{}.html'.format(template))
+
+@blueprint.route('/page_<error>')
+def route_errors(error):
+    return render_template('errors/page_{}.html'.format(error))
 
 ## Errors
 
-@app.errorhandler(403)
+@blueprint.errorhandler(403)
 def not_found_error(error):
-    return render_template('page_403.html'), 403
+    return render_template('errors/page_403.html'), 403
 
-@app.errorhandler(404)
+@blueprint.errorhandler(404)
 def not_found_error(error):
-    return render_template('page_404.html'), 404
+    return render_template('errors/page_404.html'), 404
 
-@app.errorhandler(500)
+@blueprint.errorhandler(500)
 def internal_error(error):
-    return render_template('page_500.html'), 500
+    return render_template('errors/page_500.html'), 500

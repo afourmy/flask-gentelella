@@ -10,4 +10,4 @@ blueprint = Blueprint(
 
 @blueprint.route('/<template>')
 def route_template(template):
-    return render_template(template)
+    return render_template(template + '.html')
