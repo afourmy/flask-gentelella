@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template
 
 blueprint = Blueprint(
-    'data_presentation_blueprint', 
+    'data_blueprint', 
     __name__, 
-    url_prefix = '/data_presentation', 
+    url_prefix = '/data', 
     template_folder = 'templates',
     static_folder = 'static'
     )

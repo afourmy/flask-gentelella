@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template
 
 blueprint = Blueprint(
-    'UI_elements_blueprint', 
+    'ui_blueprint', 
     __name__, 
-    url_prefix = '/UI_elements', 
+    url_prefix = '/ui', 
     template_folder = 'templates',
     static_folder = 'static'
     )
