@@ -8,6 +8,10 @@ blueprint = Blueprint(
     static_folder = 'static'
     )
 
+@blueprint.route('/index')
+def index():
+    return render_template('index.html')
+
 @blueprint.route('/<template>')
 def route_template(template):
     return render_template(template + '.html')

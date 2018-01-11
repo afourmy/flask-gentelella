@@ -22,13 +22,13 @@ def shutdown_session(exception=None):
 
 ## Route to any template
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/<template>')
-def route_template(template):
-    return render_template(template)
+# @app.route('/')
+# def index():
+#     return render_template('index.html')
+# 
+# @app.route('/<template>')
+# def route_template(template):
+#     return render_template(template)
 
 ## Logs
 
