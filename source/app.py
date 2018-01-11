@@ -10,7 +10,7 @@ app.config.from_object('config')
 db = SQLAlchemy(app)
 
 path_source = os.path.dirname(os.path.abspath(__file__))
-for module_name in ('forms', 'UI_elements', 'home', 'tables', 'data_presentation', 'additional'):
+for module_name in ('forms', 'UI_elements', 'home', 'tables', 'data_presentation', 'additional', 'base'):
     module = import_module('{}.routes'.format(module_name))
     app.register_blueprint(module.blueprint)
 
@@ -29,20 +29,6 @@ def index():
 @app.route('/<template>')
 def route_template(template):
     return render_template(template)
-
-## Errors
-
-@app.errorhandler(403)
-def not_found_error(error):
-    return render_template('page_403.html'), 403
-
-@app.errorhandler(404)
-def not_found_error(error):
-    return render_template('page_404.html'), 404
-
-@app.errorhandler(500)
-def internal_error(error):
-    return render_template('page_500.html'), 500
 
 ## Logs
 
