@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, redirect, request, url_for
 from flask_login import current_user, LoginManager, logout_user
+from .forms import LoginForm, CreateAccountForm
 
 # start the login system
 login_manager = LoginManager()
