@@ -1,6 +1,7 @@
 # Gentelella
 
-[Gentelella Admin](https://github.com/puikinsh/gentelella) is a free to use Bootstrap admin template.
+[Gentelella Admin](https://github.com/puikinsh/gentelella) is a free to use Bootstrap admin template. 
+This project integrates Gentelella with Flask using blueprints and flask_login.
 
 ![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")
 
@@ -19,10 +20,12 @@
     pip install -r requirements.txt
 
 ### 3. Run the code
-    cd gentelella
+    cd source
     python app.py
     
 ### 4. Go the http://localhost:5000/
+
+### 5. Create an account and log in
 
 ## Scripts included:
 
