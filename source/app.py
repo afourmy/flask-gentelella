@@ -70,33 +70,6 @@ def create_app(config='config'):
 
 app = create_app()
 
-## Tear down SQLAlchemy 
-
-@app.teardown_request
-def shutdown_session(exception=None):
-    db.session.remove()
-
-## Route to any template
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
-# 
-# @app.route('/<template>')
-# def route_template(template):
-#     return render_template(template)
-
-## Logs
-
-if not app.debug:
-    file_handler = FileHandler('error.log')
-    format = '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
-    file_handler.setFormatter(Formatter(format))
-    app.logger.setLevel(logging.INFO)
-    file_handler.setLevel(logging.INFO)
-    app.logger.addHandler(file_handler)
-    app.logger.info('errors')
-
 if __name__ == '__main__':
     app.run(
         host = '0.0.0.0',
