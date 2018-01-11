@@ -1,4 +1,8 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, request, url_for
+from flask_login import current_user, LoginManager, logout_user
+
+# start the login system
+login_manager = LoginManager()
 
 blueprint = Blueprint(
     'base_blueprint', 
@@ -10,7 +14,7 @@ blueprint = Blueprint(
 
 @blueprint.route('/')
 def route_default():
-    return redirect(url_for('home_blueprint.index'))
+    return redirect(url_for('base_blueprint.login'))
 
 @blueprint.route('/<template>')
 def route_template(template):
@@ -45,17 +49,17 @@ def login():
         password = str(request.form['password'])
         user = db.session.query(User).filter_by(username=username).first()
         if user and password == user.password:
-            flask_login.login_user(user)
+            login_user(user)
             return redirect(url_for('base_blueprint.dashboard'))
         return render_template('errors/page_403.html')
-    if not flask_login.current_user.is_authenticated:
+    if not current_user.is_authenticated:
         form = LoginForm(request.form)
         return render_template('login/login.html', form=form)
     return redirect(url_for('base_blueprint.dashboard'))
 
 @blueprint.route('/logout')
 def logout():
-    flask_login.logout_user()
+    logout_user()
     return render_template('login/login.html', form=form)
 
 ## Errors
