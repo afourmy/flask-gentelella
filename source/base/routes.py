@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, request, url_for
-from flask_login import current_user, LoginManager, logout_user
+from flask_login import current_user, LoginManager, login_user, logout_user
 from .forms import LoginForm, CreateAccountForm
 
 # start the login system
@@ -12,6 +12,9 @@ blueprint = Blueprint(
     template_folder = 'templates',
     static_folder = 'static'
     )
+
+from database import db
+from .models import User
 
 @blueprint.route('/')
 def route_default():
@@ -31,32 +34,32 @@ def route_errors(error):
 
 ## Login & Registration
 
-@blueprint.route('/create_account', methods=['GET', 'POST'])
-def create_account():
-    if request.method == 'GET':
-        form = CreateAccountForm(request.form)
-        return render_template('login/create_account.html', form=form)
-    else:
-        login_form = LoginForm(request.form)
-        user = User(**request.form)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('users_blueprint.login'))
-
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
+    login_form = LoginForm(request.form)
+    create_account_form = CreateAccountForm(request.form)
+    print(request.form)  
+    if 'login' in request.form:
         username = str(request.form['username'])
         password = str(request.form['password'])
         user = db.session.query(User).filter_by(username=username).first()
         if user and password == user.password:
             login_user(user)
-            return redirect(url_for('base_blueprint.dashboard'))
+            return redirect(url_for('base_blueprint.route_default'))
         return render_template('errors/page_403.html')
+    elif 'create_account' in request.form:
+        login_form = LoginForm(request.form)
+        user = User(**request.form)
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('base_blueprint.login'))
     if not current_user.is_authenticated:
-        form = LoginForm(request.form)
-        return render_template('login/login.html', form=form)
-    return redirect(url_for('base_blueprint.dashboard'))
+        return render_template(
+            'login/login.html',
+            login_form = login_form,
+            create_account_form = create_account_form
+            )
+    return redirect(url_for('home_blueprint.index'))
 
 @blueprint.route('/logout')
 def logout():

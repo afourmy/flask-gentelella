@@ -18,17 +18,18 @@
     <div class="login_wrapper">
       <div class="animate form login_form">
         <section class="login_content">
-          <form>
+          <form method="post">
             <h1>Login Form</h1>
+            
+            {% for field in login_form if field.widget.input_type != 'hidden'  %}
             <div>
-              <input type="text" class="form-control" placeholder="Username" required="" />
+                {{ field(class="form-control", placeholder=field.label.text) }}
             </div>
+            {% endfor %}
+            
             <div>
-              <input type="password" class="form-control" placeholder="Password" required="" />
-            </div>
-            <div>
-              <a class="btn btn-default submit" href="index.html">Log in</a>
-              <a class="reset_pass" href="#">Lost your password?</a>
+            <button type="submit" class="btn btn-default submit" name="login">Log in</button>
+            <a class="reset_pass" href="#">Lost your password?</a>
             </div>
 
             <div class="clearfix"></div>
@@ -52,19 +53,17 @@
 
       <div id="register" class="animate form registration_form">
         <section class="login_content">
-          <form>
+          <form method="post">
             <h1>Create Account</h1>
+
+            {% for field in create_account_form if field.widget.input_type != 'hidden'  %}
             <div>
-              <input type="text" class="form-control" placeholder="Username" required="" />
+                {{ field(class="form-control", placeholder=field.label.text) }}
             </div>
+            {% endfor %}
+            
             <div>
-              <input type="email" class="form-control" placeholder="Email" required="" />
-            </div>
-            <div>
-              <input type="password" class="form-control" placeholder="Password" required="" />
-            </div>
-            <div>
-              <a class="btn btn-default submit" href="index.html">Submit</a>
+              <button type="submit" class="btn btn-default submit" name="create_account">Sign up</button>
             </div>
 
             <div class="clearfix"></div>
