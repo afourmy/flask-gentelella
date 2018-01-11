@@ -24,6 +24,40 @@ def route_fixed_template(template):
 def route_errors(error):
     return render_template('errors/page_{}.html'.format(error))
 
+## Login & Registration
+
+@blueprint.route('/create_account', methods=['GET', 'POST'])
+def create_account():
+    if request.method == 'GET':
+        form = CreateAccountForm(request.form)
+        return render_template('login/create_account.html', form=form)
+    else:
+        login_form = LoginForm(request.form)
+        user = User(**request.form)
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('users_blueprint.login'))
+
+@blueprint.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = str(request.form['username'])
+        password = str(request.form['password'])
+        user = db.session.query(User).filter_by(username=username).first()
+        if user and password == user.password:
+            flask_login.login_user(user)
+            return redirect(url_for('base_blueprint.dashboard'))
+        return render_template('errors/page_403.html')
+    if not flask_login.current_user.is_authenticated:
+        form = LoginForm(request.form)
+        return render_template('login/login.html', form=form)
+    return redirect(url_for('base_blueprint.dashboard'))
+
+@blueprint.route('/logout')
+def logout():
+    flask_login.logout_user()
+    return render_template('login/login.html', form=form)
+
 ## Errors
 
 @blueprint.errorhandler(403)
