@@ -1,6 +1,7 @@
 # Gentelella
 
-[Gentelella Admin](https://github.com/puikinsh/gentelella) is a free to use Bootstrap admin template. 
+[Gentelella Admin](https://github.com/puikinsh/gentelella) is a free to use Bootstrap admin template.
+
 This project integrates Gentelella with Flask using blueprints and flask_login.
 
 ![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")
@@ -84,4 +85,4 @@ You can contact me at my personal email address:
 117, 114, 109, 121, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109)))
 ```
 
-or on the [Network to Code slack](http://networktocode.herokuapp.com "Network to Code slack"). (@minto, channel #pynms)
+or on the [Network to Code slack](http://networktocode.herokuapp.com "Network to Code slack"). (@minto, channel #enms)
