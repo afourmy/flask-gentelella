@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
 from inspect import stack
@@ -46,6 +47,7 @@ def configure_database(app):
     @app.teardown_request
     def shutdown_session(exception=None):
         db.session.remove()
+    migrate = Migrate(app, db)
 
 def configure_logs(app):
     if not app.debug:
