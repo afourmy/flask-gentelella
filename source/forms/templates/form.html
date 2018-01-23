@@ -1037,3 +1037,9 @@
     </div>
   </div>
 {% endblock content %}
+
+{% block javascripts %}
+  {{ super()}}
+  <!-- Parsley -->
+  <script src="{{ url_for('static', filename='vendors/parsleyjs/dist/parsley.min.js') }}"></script>
+{% endblock javascripts %}
