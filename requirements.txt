@@ -4,3 +4,6 @@ flask_migrate
 flask_wtf
 flask_sqlalchemy
 gunicorn
+coverage
+pytest
+flake8
