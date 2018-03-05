@@ -2,6 +2,14 @@ from logging import CRITICAL, disable
 disable(CRITICAL)
 
 urls = {
+    '': (
+        'fixed_sidebar',
+        'fixed_footer',
+        'plain_page',
+        'page_403',
+        'page_404',
+        'page_500'
+        ),
     '/home': (
         '/index',
         '/index2',
@@ -37,9 +45,17 @@ urls = {
         '/echarts',
         '/other_charts'
         ),
+    '/additional': (
+        '/ecommerce',
+        '/projects',
+        '/project_detail',
+        '/contacts',
+        '/profile',
+        '/pricing'
+        )
     }
 
-free_access = {'/', '/login'}
+free_access = {'/', '/login', 'page_403', 'page_404', 'page_500'}
 
 def check_pages(*pages):
     def decorator(function):
