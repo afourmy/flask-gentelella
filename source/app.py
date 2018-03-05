@@ -1,22 +1,19 @@
+from config import DebugConfig
 from flask import Flask, render_template
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
-from inspect import stack
-from logging import Formatter, FileHandler
-from os.path import abspath, dirname, join
-import logging
-import os
-import sys
+from logging import basicConfig, DEBUG, getLogger, StreamHandler
+from os.path import abspath, dirname, join, pardir
+from sys import dont_write_bytecode, path
 
 # prevent python from writing *.pyc files / __pycache__ folders
-sys.dont_write_bytecode = True
+dont_write_bytecode = True
 
-path_app = dirname(abspath(stack()[0][1]))
-if path_app not in sys.path:
-    sys.path.append(path_app)
-
-path_source = os.path.dirname(os.path.abspath(__file__))
+path_source = dirname(abspath(__file__))
+path_parent = abspath(join(path_source, pardir))
+if path_source not in path:
+    path.append(path_source)
 
 from database import db, create_database
 from base.routes import login_manager
@@ -51,23 +48,19 @@ def configure_database(app):
 
 def configure_logs(app):
     if not app.debug:
-        logging.basicConfig(filename='error.log',level=logging.DEBUG)
-    logger = logging.getLogger()
-    logger.addHandler(logging.StreamHandler())
+        basicConfig(filename='error.log',level=DEBUG)
+    logger = getLogger()
+    logger.addHandler(StreamHandler())
 
-def create_app(config='config'):
+def create_app():
     app = Flask(__name__, static_folder='base/static')
-    app.config.from_object('config')
-    
+    app.config.from_object(DebugConfig)
     register_extensions(app)
     register_blueprints(app)
-    
     from base.models import User
     configure_login_manager(app, User)
-    
     configure_database(app)
     configure_logs(app)
-
     return app
 
 app = create_app()
@@ -75,6 +68,6 @@ app = create_app()
 if __name__ == '__main__':
     app.run(
         host = '0.0.0.0',
-        port = int(os.environ.get('PORT', 5000)),
+        port = 5000,
         threaded = True
         )
