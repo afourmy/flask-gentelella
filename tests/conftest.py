@@ -1,7 +1,6 @@
 from os import remove
 from os.path import abspath, dirname, join, pardir
 from sys import dont_write_bytecode, path
-from werkzeug.datastructures import ImmutableMultiDict
 import pytest
 import tempfile
 
@@ -19,13 +18,15 @@ def base_client():
     yield app.test_client()
     remove(join(path_source, 'database.db'))
 
+# credentials = 
+
 @pytest.fixture
 def user_client():
     app = create_app()
     client = app.test_client()
+    create = {'username': '', 'password': '', 'create_account': ''}
+    login = {'username': '', 'password': '', 'login': ''}
     with app.app_context():
-        create = ImmutableMultiDict([('username', 'cisco'), ('password', 'cisco'), ('create_account', '')])
-        login = ImmutableMultiDict([('username', 'cisco'), ('password', 'cisco'), ('login', '')])
         client.post('/login', data=create)
         client.post('/login', data=login)
         yield client
