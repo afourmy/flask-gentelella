@@ -5,7 +5,7 @@ urls = {
     '/home': (
         '/index',
         '/index2',
-        '/index3',
+        '/index3'
         ),
     '/forms': (
         '/form',
@@ -13,11 +13,29 @@ urls = {
         '/form_validation',
         '/form_wizards',
         '/form_upload',
-        '/form_buttons',
+        '/form_buttons'
         ),
     '/ui': (
         '/general_elements',
-        '/media_gallery'
+        '/media_gallery',
+        '/typography',
+        '/icons',
+        '/glyphicons',
+        '/widgets',
+        '/invoice',
+        '/inbox',
+        '/calendar'
+        ),
+    '/tables': (
+        '/tables',
+        '/tables_dynamic'
+        ),
+    '/data': (
+        '/chartjs',
+        '/chartjs2',
+        '/morisjs',
+        '/echarts',
+        '/other_charts'
         ),
     }
 
