@@ -32,4 +32,4 @@ This project integrates Gentelella with Flask using blueprints, flask_login and 
 
 # Contact
 
-You can contact me on the [Network to Code slack](http://networktocode.herokuapp.com "Network to Code slack"). (channel #enms, @minto)
+You can contact me on the [Network to Code slack](http://networktocode.herokuapp.com "Network to Code slack") (channel #enms, @minto).
