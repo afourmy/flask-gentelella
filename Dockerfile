@@ -6,7 +6,7 @@ RUN pip install -r requirements.txt
 
 COPY gunicorn_config.py .
 
-COPY source ./app
+COPY source /app
 
 EXPOSE 5000
 
