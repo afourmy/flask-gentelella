@@ -9,12 +9,12 @@ urls = {
         'page_403',
         'page_404',
         'page_500'
-        ),
+    ),
     '/home': (
         '/index',
         '/index2',
         '/index3'
-        ),
+    ),
     '/forms': (
         '/form',
         '/form_advanced',
@@ -22,7 +22,7 @@ urls = {
         '/form_wizards',
         '/form_upload',
         '/form_buttons'
-        ),
+    ),
     '/ui': (
         '/general_elements',
         '/media_gallery',
@@ -33,18 +33,18 @@ urls = {
         '/invoice',
         '/inbox',
         '/calendar'
-        ),
+    ),
     '/tables': (
         '/tables',
         '/tables_dynamic'
-        ),
+    ),
     '/data': (
         '/chartjs',
         '/chartjs2',
         '/morisjs',
         '/echarts',
         '/other_charts'
-        ),
+    ),
     '/additional': (
         '/ecommerce',
         '/projects',
@@ -52,10 +52,11 @@ urls = {
         '/contacts',
         '/profile',
         '/pricing'
-        )
-    }
+    )
+}
 
 free_access = {'/', '/login', 'page_403', 'page_404', 'page_500'}
+
 
 def check_pages(*pages):
     def decorator(function):
@@ -66,6 +67,7 @@ def check_pages(*pages):
                 assert r.status_code == 200
         return wrapper
     return decorator
+
 
 def check_blueprints(*blueprints):
     def decorator(function):
@@ -82,6 +84,7 @@ def check_blueprints(*blueprints):
 # test the login system: login, user creation, logout
 # test that all pages respond with HTTP 403 if not logged in, 200 otherwise
 
+
 def test_authentication(base_client):
     for blueprint, pages in urls.items():
         for page in pages:
@@ -90,6 +93,7 @@ def test_authentication(base_client):
             r = base_client.get(page_url, follow_redirects=True)
             print(page_url, r)
             assert r.status_code == expected_code
+
 
 def test_urls(user_client):
     for blueprint, pages in urls.items():
