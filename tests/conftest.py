@@ -16,7 +16,7 @@ from app import create_app
 def base_client():
     app = create_app()
     yield app.test_client()
-    remove(join(path_source, 'database.db'))
+    remove(join(path_parent, 'database.db'))
 
 
 @fixture
@@ -29,4 +29,4 @@ def user_client():
         client.post('/login', data=create)
         client.post('/login', data=login)
         yield client
-    remove(join(path_source, 'database.db'))
+    remove(join(path_parent, 'database.db'))
