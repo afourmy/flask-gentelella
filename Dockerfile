@@ -12,4 +12,4 @@ COPY source /app
 
 EXPOSE 5000
 
-CMD ["gunicorn", "--config", "./gunicorn_config.py", "app:app"]
+CMD ["gunicorn", "--chdir", "source", "--config", "./gunicorn_config.py", "app:app"]
