@@ -2,12 +2,13 @@ from flask import Blueprint, render_template
 from flask_login import login_required
 
 blueprint = Blueprint(
-    'tables_blueprint', 
-    __name__, 
-    url_prefix = '/tables', 
-    template_folder = 'templates',
-    static_folder = 'static'
-    )
+    'tables_blueprint',
+    __name__,
+    url_prefix='/tables',
+    template_folder='templates',
+    static_folder='static'
+)
+
 
 @blueprint.route('/<template>')
 @login_required

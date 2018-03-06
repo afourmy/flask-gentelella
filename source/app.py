@@ -43,7 +43,7 @@ def configure_login_manager(app, User):
 
 def configure_database(app):
     create_database()
-    migrate = Migrate(app, db)
+    Migrate(app, db)
 
     @app.teardown_request
     def shutdown_session(exception=None):

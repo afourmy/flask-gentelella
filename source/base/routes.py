@@ -5,42 +5,47 @@ from flask_login import (
     login_required,
     login_user,
     logout_user
-    )
+)
 from .forms import LoginForm, CreateAccountForm
 
 # start the login system
 login_manager = LoginManager()
 
 blueprint = Blueprint(
-    'base_blueprint', 
-    __name__, 
-    url_prefix = '', 
-    template_folder = 'templates',
-    static_folder = 'static'
-    )
+    'base_blueprint',
+    __name__,
+    url_prefix='',
+    template_folder='templates',
+    static_folder='static'
+)
 
 from database import db
 from .models import User
 
+
 @blueprint.route('/')
 def route_default():
     return redirect(url_for('base_blueprint.login'))
+
 
 @blueprint.route('/<template>')
 @login_required
 def route_template(template):
     return render_template(template + '.html')
 
+
 @blueprint.route('/fixed_<template>')
 @login_required
 def route_fixed_template(template):
     return render_template('fixed/fixed_{}.html'.format(template))
+
 
 @blueprint.route('/page_<error>')
 def route_errors(error):
     return render_template('errors/page_{}.html'.format(error))
 
 ## Login & Registration
+
 
 @blueprint.route('/login', methods=['GET', 'POST'])
 def login():
@@ -63,10 +68,11 @@ def login():
     if not current_user.is_authenticated:
         return render_template(
             'login/login.html',
-            login_form = login_form,
-            create_account_form = create_account_form
-            )
+            login_form=login_form,
+            create_account_form=create_account_form
+        )
     return redirect(url_for('home_blueprint.index'))
+
 
 @blueprint.route('/logout')
 @login_required
@@ -76,17 +82,21 @@ def logout():
 
 ## Errors
 
+
 @login_manager.unauthorized_handler
 def unauthorized_handler():
     return render_template('errors/page_403.html'), 403
 
+
 @blueprint.errorhandler(403)
-def not_found_error(error):
+def access_forbidden(error):
     return render_template('errors/page_403.html'), 403
+
 
 @blueprint.errorhandler(404)
 def not_found_error(error):
     return render_template('errors/page_404.html'), 404
+
 
 @blueprint.errorhandler(500)
 def internal_error(error):
