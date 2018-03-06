@@ -10,6 +10,6 @@ RUN pip install -r requirements.txt
 
 COPY source /app
 
-EXPOSE 5100
+EXPOSE 5000
 
 CMD ["gunicorn", "--config", "./gunicorn_config.py", "app:app"]
