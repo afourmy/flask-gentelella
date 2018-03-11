@@ -12,7 +12,7 @@ install:
 
 script:
   - flake8
-  - coverage run --source=../source -m pytest
+  - coverage run --source=/source -m pytest
 
 after_success:
   - coveralls
