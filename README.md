@@ -11,24 +11,36 @@ This project integrates Gentelella with Flask using blueprints, flask_login and 
 
 **[Template Demo](https://colorlib.com/polygon/gentelella/index.html)**
 
-## Installation
+# Installation
 
-### (Optional) Set up a [virtual environment](https://docs.python.org/3/library/venv.html) 
+## (Optional) Set up a [virtual environment](https://docs.python.org/3/library/venv.html) 
 
-### 1. Get the code
+## 1. Get the code
     git clone https://github.com/afourmy/flask-gentelella.git
     cd flask-gentelella
 
-### 2. Install requirements 
+## 2. Install requirements 
     pip install -r requirements.txt
+    pip install -r requirements_dev.txt
 
-### 3. Run the code
+## 3. Run the code
     cd source
     python app.py
     
-### 4. Go the http://127.0.0.1:5000/
+## 4. Go the http://127.0.0.1:5000/
 
-### 5. Create an account and log in
+## 5. Create an account and log in
+
+# Run Flask Gentelella in a docker container
+
+## 1. Fetch the image on dockerhub
+    docker pull afourmy/flask-gentelella
+
+## 2. Display the list of all local docker images
+    docker images
+
+## 3. Run the image on port 5000
+    docker run -p 5000:5000 *image_name*
 
 # Contact
 
