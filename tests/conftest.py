@@ -3,8 +3,8 @@ from os.path import abspath, dirname, join, pardir
 from pytest import fixture
 import sys
 
-path_source = dirname(abspath(__file__))
-path_parent = abspath(join(path_source, pardir))
+path_test = dirname(abspath(__file__))
+path_parent = abspath(join(path_test, pardir))
 path_app = join(path_parent, 'source')
 if path_app not in sys.path:
     sys.path.append(path_app)
@@ -16,7 +16,7 @@ from app import create_app
 def base_client():
     app = create_app()
     yield app.test_client()
-    remove(join(path_parent, 'database.db'))
+    remove(join(path_test, 'database.db'))
 
 
 @fixture
@@ -29,4 +29,4 @@ def user_client():
         client.post('/login', data=create)
         client.post('/login', data=login)
         yield client
-    remove(join(path_parent, 'database.db'))
+    remove(join(path_test, 'database.db'))
