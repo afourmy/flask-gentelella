@@ -41,7 +41,3 @@ This project integrates Gentelella with Flask using blueprints, flask_login and 
 
 ### 3. Run the image on port 5000
     docker run -p 5000:5000 image_name
-
-# Contact
-
-You can contact me on the [Network to Code slack](http://networktocode.herokuapp.com "Network to Code slack") (channel #enms, @minto).
