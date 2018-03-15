@@ -1,9 +1,4 @@
-dist: trusty
-
 language: python
-
-addons:
-  chrome: stable
 
 python:
   - 2.7
@@ -11,12 +6,12 @@ python:
   - 3.5
   - 3.6
 
-before_install:
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-
 install:
   - pip install -r requirements.txt
   - pip install -r requirements_dev.txt
+
+before_script:
+  cd tests/
 
 script:
   - flake8
