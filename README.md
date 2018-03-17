@@ -21,12 +21,11 @@ This project integrates Gentelella with Flask using blueprints, flask_login and 
 
 ### 2. Install requirements 
     pip install -r requirements.txt
-    pip install -r requirements_dev.txt
 
 ### 3. Run the code
     cd source
     python app.py
-    
+
 ### 4. Go the http://127.0.0.1:5000/
 
 ### 5. Create an account and log in
