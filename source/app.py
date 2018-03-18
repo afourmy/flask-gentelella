@@ -67,7 +67,6 @@ def create_app(selenium=False):
     configure_login_manager(app, User)
     configure_database(app)
     configure_logs(app)
-    # app.config['LOGIN_DISABLED'] = True
     return app
 
 

@@ -13,7 +13,7 @@ before_script:
   - cd tests/
   # google chrome standalone driver
   - wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip
-  - unzip chromedriver_linux64.zip
+  - unzip -y chromedriver_linux64.zip
   - sudo mv chromedriver /usr/local/bin
   - sudo chmod a+x /usr/local/bin/chromedriver
 
