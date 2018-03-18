@@ -35,14 +35,14 @@ def user_client():
     remove(join(path_test, 'database.db'))
 
 
-@fixture
-def selenium_client():
-    app = create_app()
-    client = webdriver.Chrome(join(path_test, 'chromedriver', 'chromedriver'))
-    app_context = app.app_context()
-    app_context.push()
-    Thread(target=app.run).start()
-    # give the server some time to start
-    sleep(5)
-    yield client
-    remove(join(path_test, 'database.db'))
+# @fixture
+# def selenium_client():
+#     app = create_app()
+#     client = webdriver.Chrome(join(path_test, 'chromedriver', 'chromedriver'))
+#     app_context = app.app_context()
+#     app_context.push()
+#     Thread(target=app.run).start()
+#     # give the server some time to start
+#     sleep(5)
+#     yield client
+#     remove(join(path_test, 'database.db'))
