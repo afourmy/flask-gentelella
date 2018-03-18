@@ -48,7 +48,7 @@ def selenium_client():
     # the main thread: it must be disabled
     Thread(
         target=app.run,
-        kwargs = {
+        kwargs={
             'host': '0.0.0.0',
             'port': 5000,
             'use_reloader': False
@@ -56,7 +56,10 @@ def selenium_client():
     ).start()
     # give the server some time to start
     sleep(1)
-    client = webdriver.Chrome(join(path_test, 'chromedriver', 'chromedriver.exe'), chrome_options=options)
+    client = webdriver.Chrome(
+        join(path_test, 'chromedriver', 'chromedriver.exe'),
+        chrome_options=options
+    )
     yield client
     client.get('http://127.0.0.1:5000/shutdown')
     client.quit()
