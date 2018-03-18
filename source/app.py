@@ -56,15 +56,18 @@ def configure_logs(app):
     logger.addHandler(StreamHandler())
 
 
-def create_app():
+def create_app(selenium=False):
     app = Flask(__name__, static_folder='base/static')
     app.config.from_object(DebugConfig)
+    if selenium:
+        app.config['LOGIN_DISABLED'] = True
     register_extensions(app)
     register_blueprints(app)
     from base.models import User
     configure_login_manager(app, User)
     configure_database(app)
     configure_logs(app)
+    # app.config['LOGIN_DISABLED'] = True
     return app
 
 

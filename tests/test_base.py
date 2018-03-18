@@ -3,12 +3,12 @@ disable(CRITICAL)
 
 urls = {
     '': (
-        'fixed_sidebar',
-        'fixed_footer',
-        'plain_page',
-        'page_403',
-        'page_404',
-        'page_500'
+        '/fixed_sidebar',
+        '/fixed_footer',
+        '/plain_page',
+        '/page_403',
+        '/page_404',
+        '/page_500'
     ),
     '/home': (
         '/index',
@@ -55,7 +55,7 @@ urls = {
     )
 }
 
-free_access = {'/', '/login', 'page_403', 'page_404', 'page_500'}
+free_access = {'/', '/login', '/page_403', '/page_404', '/page_500'}
 
 
 def check_pages(*pages):
