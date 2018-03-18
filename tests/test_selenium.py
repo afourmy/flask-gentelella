@@ -1,7 +1,7 @@
 from test_base import urls
 
 
-def test_pages(selenium_client):
+def test_pages(user_client):
     for blueprint, pages in urls.items():
         for page in pages:
             pass
