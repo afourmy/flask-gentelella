@@ -5,11 +5,17 @@
 
 [Gentelella](https://github.com/puikinsh/gentelella) is a free to use Bootstrap admin template.
 
-This project integrates Gentelella with Flask using blueprints, flask_login and flask_migrate. It is also available on [Dockerhub](https://hub.docker.com/r/afourmy/flask-gentelella/) for the application to run in a docker container (see below).
+This project integrates Gentelella with Flask using: 
+    - [Blueprints](http://flask.pocoo.org/docs/0.12/blueprints/) for scalability.
+    - [flask_login](https://flask-login.readthedocs.io/en/latest/) to implement a real login system.
+    - [flask_migrate](https://flask-migrate.readthedocs.io/en/latest/).
 
-![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")
-
-**[Template Demo](https://colorlib.com/polygon/gentelella/index.html)**
+Flask-gentelella also comes with a robust CI/CD pipeline using:
+    - The [Pytest](https://docs.pytest.org/en/latest/) framework for the test suite (see the `tests` folder).
+    - [Travis CI](https://travis-ci.org/afourmy/flask-gentelella)
+    - [Coverage](https://coveralls.io/github/afourmy/flask-gentelella) to measure the code coverage of the tests.
+    - [Selenium](https://www.seleniumhq.org/) to test the application with headless chromium.
+    - A Dockerfile showing how to containerize the application with gunicorn, and a [Docker image](https://hub.docker.com/r/afourmy/flask-gentelella/) available on dockerhub, and integrated to the CI/CD pipeline (see instructions below).
 
 # Installation
 
