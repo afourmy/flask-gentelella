@@ -48,13 +48,11 @@ This project shows:
 
 ### 5. Create an account and log in
 
-# Run Flask Gentelella in a docker container
+# Run Flask Gentelella in a docker container in one command
 
 ### 1. Fetch the image on dockerhub
-    docker pull afourmy/flask-gentelella
+    docker run -d -p 5000:5000 --name gentelella --restart always afourmy/flask-gentelella
 
-### 2. Find the name of the docker image
-    docker images
+### 2. Go the http://127.0.0.1:5000/
 
-### 3. Run the image on port 5000
-    docker run -p 5000:5000 image_name
+### 3. Create an account and log in
