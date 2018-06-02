@@ -6,7 +6,7 @@ from tests.test_base import urls
 # it is renamed selenium_test instead of test_selenium to be ignored by pytest
 # (and therefore Travis CI). Rename it to test_selenium to make it a part
 # of the test suite.
-def selenium_test(selenium_client):
+def test_selenium(selenium_client):
     for blueprint, pages in urls.items():
         for page in pages:
             selenium_client.get('http://127.0.0.1:5000' + blueprint + page)

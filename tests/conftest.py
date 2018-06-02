@@ -49,21 +49,25 @@ def selenium_client():
     options.add_argument('--disable-gpu')
     # Flask can run in a separate thread, but the reloader expects to run in
     # the main thread: it must be disabled
-    Thread(
-        target=app.run,
-        kwargs={
-            'host': '0.0.0.0',
-            'port': 5000,
-            'use_reloader': False
-        }
-    ).start()
-    # give the server some time to start
-    sleep(1)
-    client = webdriver.Chrome(
-        join(path_test, 'chromedriver', 'chromedriver.exe'),
-        chrome_options=options
-    )
-    yield client
-    client.get('http://127.0.0.1:5000/shutdown')
-    client.quit()
+    client = None
+    try:
+        client = webdriver.Chrome(chrome_options=options)
+    except:
+        pass
+    # if the client cannot start, we don't want to start a Thread as the 
+    # test execution would be stuck
+    if client:
+        Thread(
+            target=app.run,
+            kwargs={
+                'host': '0.0.0.0',
+                'port': 5000,
+                'use_reloader': False
+            }
+        ).start()
+        # give the server some time to start
+        sleep(1)
+        yield client
+        client.get('http://127.0.0.1:5000/shutdown')
+        client.quit()
     app_context.pop()
