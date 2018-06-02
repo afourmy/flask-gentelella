@@ -1,4 +1,4 @@
-from test_base import check_pages, check_blueprints
+from tests.test_base import check_pages, check_blueprints
 
 
 @check_pages('/', '/home/index')

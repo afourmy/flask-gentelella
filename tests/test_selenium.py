@@ -1,4 +1,4 @@
-from test_base import urls
+from tests.test_base import urls
 
 
 # this test uses selenium to check, for all pages of gentelella, that there
