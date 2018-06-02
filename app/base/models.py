@@ -1,9 +1,9 @@
+from app import db, login_manager
 from flask_login import UserMixin
 from sqlalchemy import Column, Integer, String
-from database import Base
 
 
-class User(Base, UserMixin):
+class User(db.Model, UserMixin):
 
     __tablename__ = 'User'
 
@@ -24,3 +24,14 @@ class User(Base, UserMixin):
 
     def __repr__(self):
         return str(self.username)
+
+
+@login_manager.user_loader
+def user_loader(id):
+    return User.query.filter_by(id=id).first()
+
+@login_manager.request_loader
+def request_loader(request):
+    username = request.form.get('username')
+    user = User.query.filter_by(username=username).first()
+    return user if user else None

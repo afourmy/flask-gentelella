@@ -1,26 +1,16 @@
-from flask import Blueprint, render_template, redirect, request, url_for
+from flask import render_template, redirect, request, url_for
 from flask_login import (
     current_user,
-    LoginManager,
     login_required,
     login_user,
     logout_user
 )
 from .forms import LoginForm, CreateAccountForm
 
-# start the login system
-login_manager = LoginManager()
 
-blueprint = Blueprint(
-    'base_blueprint',
-    __name__,
-    url_prefix='',
-    template_folder='templates',
-    static_folder='static'
-)
-
-from database import db
-from .models import User
+from app import db, login_manager
+from app.base import blueprint
+from app.base.models import User
 
 
 @blueprint.route('/')
@@ -54,7 +44,7 @@ def login():
     if 'login' in request.form:
         username = str(request.form['username'])
         password = str(request.form['password'])
-        user = db.session.query(User).filter_by(username=username).first()
+        user = User.query.filter_by(username=username).first()
         if user and password == user.password:
             login_user(user)
             return redirect(url_for('base_blueprint.route_default'))
