@@ -14,6 +14,7 @@ script:
   - sudo apt-get update
   - sudo apt-get install google-chrome-stable
   - sudo apt-get install chromium-browser
+  - sudo chmod a+x ./tests/chromedriver
   - coverage run --source=/source -m pytest
 
 after_success:
