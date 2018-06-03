@@ -45,10 +45,10 @@ def selenium_client():
     # Flask can run in a separate thread, but the reloader expects to run in
     # the main thread: it must be disabled
     client = None
-    # try:
-    client = webdriver.Chrome('./tests/chromedriver', chrome_options=options)
-    # except Exception:
-        # pass
+    try:
+        client = webdriver.Chrome('./tests/chromedriver', chrome_options=options)
+    except Exception:
+        pass
     # if the client cannot start, we don't want to start a Thread as the
     # test execution would be stuck
     if client:
