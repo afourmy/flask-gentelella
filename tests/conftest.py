@@ -1,12 +1,8 @@
-
 from pytest import fixture
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from threading import Thread
 from time import sleep
-
-
-
 from app import create_app, db
 
 
@@ -18,7 +14,6 @@ def base_client():
     db.session.close()
     db.drop_all()
     yield app.test_client()
-
 
 
 @fixture
@@ -52,9 +47,9 @@ def selenium_client():
     client = None
     try:
         client = webdriver.Chrome(chrome_options=options)
-    except:
+    except Exception:
         pass
-    # if the client cannot start, we don't want to start a Thread as the 
+    # if the client cannot start, we don't want to start a Thread as the
     # test execution would be stuck
     if client:
         Thread(

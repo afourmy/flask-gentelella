@@ -8,13 +8,10 @@ python:
 
 install:
   - pip install -r requirements_dev.txt
-  
-before_script:
-  - cd tests/
 
 script:
   - flake8
-  - coverage run --source=../source -m pytest
+  - coverage run --source=/source -m pytest
 
 after_success:
   - coveralls
