@@ -1,12 +1,22 @@
 FROM python:3.6
 
-COPY requirements.txt .
+ENV FLASK_APP gentelella.py
+
+RUN adduser -D gentelella
+
+USER gentelella
+
+WORKDIR /home/gentelella
+
+COPY requirements.txt ./
+
+COPY gunicorn_config.py ./
+
+COPY app app
+
+COPY migrations migrations
 
 RUN pip install -r requirements.txt
-
-COPY gunicorn_config.py .
-
-COPY source /app
 
 EXPOSE 5000
 
