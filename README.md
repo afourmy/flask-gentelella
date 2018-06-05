@@ -40,9 +40,12 @@ This project shows:
 ### 2. Install requirements 
     pip install -r requirements.txt
 
-### 3. Run the code
-    cd source
-    python app.py
+### 3. Set the FLASK_APP environment variable
+    (Windows) set FLASK_APP=gentelella.py
+    (Unix) export FLASK_APP=gentelella.py
+
+### 4. Run the application
+    flask run
 
 ### 4. Go the http://127.0.0.1:5000/
 
