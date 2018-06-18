@@ -45,7 +45,7 @@ This project shows:
     (Unix) export FLASK_APP=gentelella.py
 
 ### 4. Run the application
-    flask run
+    flask run --host=0.0.0.0
 
 ### 4. Go the http://127.0.0.1:5000/
 
