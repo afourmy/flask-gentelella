@@ -4,10 +4,6 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
 from logging import basicConfig, DEBUG, getLogger, StreamHandler
-import sys
-
-# prevent python from writing *.pyc files / __pycache__ folders
-sys.dont_write_bytecode = True
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -49,5 +45,5 @@ def create_app(selenium=False):
     register_extensions(app)
     register_blueprints(app)
     configure_database(app)
-    # configure_logs(app)
+    configure_logs(app)
     return app
