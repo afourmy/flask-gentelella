@@ -91,7 +91,6 @@ def test_authentication(base_client):
             page_url = blueprint + page
             expected_code = 200 if page_url in free_access else 403
             r = base_client.get(page_url, follow_redirects=True)
-            print(page_url, r)
             assert r.status_code == expected_code
 
 
