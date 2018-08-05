@@ -1,4 +1,4 @@
-from app.config import DebugConfig
+from app.config import ProductionConfig
 from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
@@ -39,7 +39,7 @@ def configure_logs(app):
 
 def create_app(selenium=False):
     app = Flask(__name__, static_folder='base/static')
-    app.config.from_object(DebugConfig)
+    app.config.from_object(ProductionConfig)
     if selenium:
         app.config['LOGIN_DISABLED'] = True
     register_extensions(app)
