@@ -27,7 +27,7 @@ def user_client():
     create = {'username': '', 'password': '', 'create_account': ''}
     login = {'username': '', 'password': '', 'login': ''}
     with app.app_context():
-        client.post('/login', data=create)
+        client.post('/create_user', data=create)
         client.post('/login', data=login)
         yield client
 
