@@ -1,6 +1,8 @@
-from app import db, login_manager
 from flask_login import UserMixin
+from hashlib import md5
 from sqlalchemy import Column, Integer, String
+
+from app import db, login_manager
 
 
 class User(db.Model, UserMixin):
@@ -20,6 +22,8 @@ class User(db.Model, UserMixin):
             if hasattr(value, '__iter__') and not isinstance(value, str):
                 # the ,= unpack of a singleton fails PEP8 (travis flake8 test)
                 value = value[0]
+            if property == 'password':
+                value = md5(value.encode('utf-8')).hexdigest()
             setattr(self, property, value)
 
     def __repr__(self):
