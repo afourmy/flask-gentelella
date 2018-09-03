@@ -1,6 +1,5 @@
 from bcrypt import gensalt, hashpw
 from flask_login import UserMixin
-from hashlib import md5
 from sqlalchemy import Column, Integer, String
 
 from app import db, login_manager
