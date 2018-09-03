@@ -49,12 +49,6 @@ def login():
             login_user(user)
             return redirect(url_for('base_blueprint.route_default'))
         return render_template('errors/page_403.html')
-    elif 'create_account' in request.form:
-        login_form = LoginForm(request.form)
-        user = User(**request.form)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('base_blueprint.login'))
     if not current_user.is_authenticated:
         return render_template(
             'login/login.html',
@@ -62,6 +56,14 @@ def login():
             create_account_form=create_account_form
         )
     return redirect(url_for('home_blueprint.index'))
+
+
+@blueprint.route('/create_user', methods=['POST'])
+def create_user():
+    user = User(**request.form)
+    db.session.add(user)
+    db.session.commit()
+    return jsonify('success')
 
 
 @blueprint.route('/logout')

@@ -10,7 +10,7 @@ function signup() { // eslint-disable-line no-unused-vars
   if ($('#create-user-form').parsley().validate()) {
     $.ajax({
       type: 'POST',
-      url: '/admin/process_user',
+      url: '/create_user',
       dataType: 'json',
       data: $('#create-user-form').serialize(),
       success: function(result) {
