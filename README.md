@@ -11,7 +11,7 @@
 
 This project integrates Gentelella with Flask using: 
 - [Blueprints](http://flask.pocoo.org/docs/0.12/blueprints/) for scalability.
-- [flask_login](https://flask-login.readthedocs.io/en/latest/) to implement a login system (MD5 hash).
+- [flask_login](https://flask-login.readthedocs.io/en/latest/) for the login system (passwords hashed with MD5).
 - [flask_migrate](https://flask-migrate.readthedocs.io/en/latest/).
 
 Flask-gentelella also comes with a robust CI/CD pipeline using:

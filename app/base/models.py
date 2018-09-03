@@ -1,3 +1,4 @@
+from bcrypt import gensalt, hashpw
 from flask_login import UserMixin
 from hashlib import md5
 from sqlalchemy import Column, Integer, String
@@ -23,7 +24,7 @@ class User(db.Model, UserMixin):
                 # the ,= unpack of a singleton fails PEP8 (travis flake8 test)
                 value = value[0]
             if property == 'password':
-                value = md5(value.encode('utf-8')).hexdigest()
+                value = hashpw(value.encode('utf8'), gensalt())
             setattr(self, property, value)
 
     def __repr__(self):

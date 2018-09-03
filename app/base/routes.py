@@ -1,3 +1,4 @@
+from bcrypt import checkpw
 from flask import jsonify, render_template, redirect, request, url_for
 from flask_login import (
     current_user,
@@ -5,7 +6,6 @@ from flask_login import (
     login_user,
     logout_user
 )
-from hashlib import md5
 
 from app import db, login_manager
 from app.base import blueprint
@@ -45,7 +45,7 @@ def login():
         username = str(request.form['username'])
         password = str(request.form['password'])
         user = User.query.filter_by(username=username).first()
-        if user and md5(password.encode('utf-8')).hexdigest() == user.password:
+        if user and checkpw(password.encode('utf8'), user.password):
             login_user(user)
             return redirect(url_for('base_blueprint.route_default'))
         return render_template('errors/page_403.html')
