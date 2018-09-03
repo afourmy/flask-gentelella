@@ -1,0 +1,27 @@
+{
+  "name": "Flask-gentelella",
+  "version": "1.0.0",
+  "description": "A template integrating Gentelella with Flask",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": "8.11.3"
+  },
+  "devDependencies": {
+    "eslint": "5.0.0",
+    "eslint-config-google": "0.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afourmy/flask-gentelella"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Antoine Fourmy",
+  "contributors": [
+    "Antoine fourmy <antoine.fourmy@gmail.com>"
+  ],
+  "license": "MIT"
+}
