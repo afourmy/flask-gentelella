@@ -21,3 +21,6 @@ venv
 _build
 _static
 _templates
+
+# javascript
+package-lock.json
