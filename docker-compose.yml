@@ -1,10 +1,9 @@
 version: '3'
 services:
-  flasky:
+  gentelella:
     build: .
     ports:
       - "5000:5000"
-    env_file: .env
     restart: always
     depends_on:
       - db

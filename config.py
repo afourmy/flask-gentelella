@@ -22,3 +22,10 @@ class ProductionConfig(Config):
 
 class DebugConfig(Config):
     DEBUG = True
+
+
+config_dict = {
+    'Production': ProductionConfig,
+    'Debug': DebugConfig,
+    'Selenium': SeleniumConfig
+}
