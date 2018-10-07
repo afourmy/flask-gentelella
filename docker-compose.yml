@@ -1,10 +1,11 @@
 version: '3'
 services:
   gentelella:
+    restart: always
+    env_file: .env
     build: .
     ports:
       - "5000:5000"
-    restart: always
     depends_on:
       - db
   db:
