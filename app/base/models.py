@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     id = Column(Integer, primary_key=True)
     username = Column(String(120), unique=True)
     email = Column(String(120), unique=True)
-    password = Column(String(30))
+    password = Column(String(60))
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():

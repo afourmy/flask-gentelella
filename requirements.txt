@@ -5,3 +5,4 @@ flask_migrate
 flask_wtf
 flask_sqlalchemy
 gunicorn
+psycopg2
