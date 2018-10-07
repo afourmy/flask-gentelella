@@ -42,8 +42,8 @@ def login():
     login_form = LoginForm(request.form)
     create_account_form = CreateAccountForm(request.form)
     if 'login' in request.form:
-        username = str(request.form['username'])
-        password = str(request.form['password'])
+        username = request.form['username']
+        password = request.form['password']
         user = User.query.filter_by(username=username).first()
         if user and checkpw(password.encode('utf8'), user.password):
             login_user(user)
