@@ -51,30 +51,32 @@ This project shows:
 ### 4. Run the application
     flask run --host=0.0.0.0
 
-### 4. Go the http://server_address:5000/
-
-### 5. Create an account and log in
+### 4. Go to http://server_address:5000/, create an account and log in
 
 # Run Flask Gentelella in a docker container in one command
 
 ### 1. Fetch the image on dockerhub
     docker run -d -p 5000:5000 --name gentelella --restart always afourmy/flask-gentelella
 
-### 2. Go the http://server_address:5000/
+### 2. Go to http://server_address:5000/
 
 ### 3. Create an account and log in
 
 # Run Flask Gentelella with a PostgreSQL database
 
-## Install a PostgreSQL database (Ubuntu)
+### 1. Install a PostgreSQL database (Ubuntu)
+    apt-get update
+    apt-get install -y postgresql libpq-dev
+    sudo -u postgres psql -c "CREATE DATABASE gentelella;"
+    sudo -u postgres psql -c "CREATE USER gentelella WITH PASSWORD 'your-password';"
+    sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE gentelella TO gentelella;"
 
-```
-apt-get update
-apt-get install -y postgresql libpq-dev
-sudo -u postgres psql -c "CREATE DATABASE gentelella;"
-sudo -u postgres psql -c "CREATE USER gentelella WITH PASSWORD 'your-password';"
-sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE gentelella TO gentelella;"
-```
+
+### 2. Export the following environment variables
+    (Windows) set GENTELELLA_CONFIG_MODE=Production
+    (Unix) export GENTELELLA_CONFIG_MODE=Production
+    (Windows) set GENTELELLA_DATABASE_PASSWORD=your-password
+    (Unix) export GENTELELLA_DATABASE_PASSWORD=your-password
 
 # Run Flask Gentelella with nginx and a PostgreSQL database with docker-compose
 
@@ -84,5 +86,5 @@ sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE gentelella TO gentele
 
 ### `sudo docker-compose up -d`
 
-### Go the http://server_address
+### Go to http://server_address
 
