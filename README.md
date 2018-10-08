@@ -20,6 +20,7 @@ Flask-gentelella also comes with a robust CI/CD pipeline using:
 - [Coverage](https://coveralls.io/github/afourmy/flask-gentelella) to measure the code coverage of the tests.
 - [Selenium](https://www.seleniumhq.org/) to test the application with headless chromium.
 - A Dockerfile showing how to containerize the application with gunicorn, and a [Docker image](https://hub.docker.com/r/afourmy/flask-gentelella/) available on dockerhub, and integrated to the CI/CD pipeline (see instructions below).
+- A `docker-compose` file to start Flask-gentelella with `nginx`, `gunicorn` and a PostgreSQL.
 
 Here is an example of a real project implemented using Flask-Gentelella:
 - [Online demo](http://afourmy.pythonanywhere.com/)
@@ -62,3 +63,12 @@ This project shows:
 ### 2. Go the http://127.0.0.1:5000/
 
 ### 3. Create an account and log in
+
+# Run Flask Gentelella with nginx and a PostgreSQL database with docker-compose
+
+### `sudo docker-compose pull`
+
+### `sudo docker-compose build`
+
+### `sudo docker-compose up -d`
+
