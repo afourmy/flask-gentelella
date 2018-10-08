@@ -10,7 +10,7 @@ class Config(object):
 class ProductionConfig(Config):
     DEBUG = False
 
-    # PostgreSQL Database
+    # PostgreSQL database
     SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'.format(
             environ.get('GENTELELLA_DATABASE_USER', 'gentelella'),
             environ.get('GENTELELLA_DATABASE_PASSWORD', 'gentelella'),
