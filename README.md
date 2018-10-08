@@ -58,9 +58,7 @@ This project shows:
 ### 1. Fetch the image on dockerhub
     docker run -d -p 5000:5000 --name gentelella --restart always afourmy/flask-gentelella
 
-### 2. Go to http://server_address:5000/
-
-### 3. Create an account and log in
+### 2. Go to http://server_address:5000/, create an account and log in
 
 # Run Flask Gentelella with a PostgreSQL database
 
@@ -71,12 +69,13 @@ This project shows:
     sudo -u postgres psql -c "CREATE USER gentelella WITH PASSWORD 'your-password';"
     sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE gentelella TO gentelella;"
 
-
 ### 2. Export the following environment variables
     (Windows) set GENTELELLA_CONFIG_MODE=Production
     (Unix) export GENTELELLA_CONFIG_MODE=Production
     (Windows) set GENTELELLA_DATABASE_PASSWORD=your-password
     (Unix) export GENTELELLA_DATABASE_PASSWORD=your-password
+
+### 3. Go to http://server_address:5000/, create an account and log in
 
 # Run Flask Gentelella with nginx and a PostgreSQL database with docker-compose
 
@@ -86,5 +85,5 @@ This project shows:
 
 ### `sudo docker-compose up -d`
 
-### Go to http://server_address
+### Go to http://server_address, create an account and log in
 
