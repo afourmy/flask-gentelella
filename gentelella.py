@@ -1,6 +1,5 @@
 from flask_migrate import Migrate
 from os import environ
-from pathlib import Path
 from sys import exit
 
 from config import config_dict
