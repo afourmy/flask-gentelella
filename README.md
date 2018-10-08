@@ -34,7 +34,7 @@ This project shows:
 - how to use [Leaflet.js](http://afourmy.pythonanywhere.com/views/geographical_view) for GIS programming.
 - how to use [Flask APScheduler](https://github.com/viniciuschiele/flask-apscheduler) to implement crontab-like features.
 
-## Installation
+## Run Flask Gentelella with a SQLite database
 
 ### (Optional) Set up a [virtual environment](https://docs.python.org/3/library/venv.html) 
 
@@ -54,13 +54,6 @@ This project shows:
 
 ### 4. Go to http://server_address:5000/, create an account and log in
 
-## Run Flask Gentelella in a docker container
-
-### 1. Fetch the image on dockerhub
-    docker run -d -p 5000:5000 --name gentelella --restart always afourmy/flask-gentelella
-
-### 2. Go to http://server_address:5000/, create an account and log in
-
 ## Run Flask Gentelella with a PostgreSQL database (Ubuntu)
 
 ### 1. Install a PostgreSQL database
@@ -74,9 +67,16 @@ This project shows:
     export GENTELELLA_CONFIG_MODE=Production
     export GENTELELLA_DATABASE_PASSWORD=your-password
 
-### 3. Go to http://server_address:5000/, create an account and log in
+### 3. Follow the steps described in the previous section
 
-## Run Flask Gentelella with nginx and a PostgreSQL database with docker-compose
+## Run Flask Gentelella in a docker container
+
+### 1. Fetch the image on dockerhub
+    docker run -d -p 5000:5000 --name gentelella --restart always afourmy/flask-gentelella
+
+### 2. Go to http://server_address:5000/, create an account and log in
+
+## Run Flask Gentelella in a docker container with nginx and a PostgreSQL database (`docker-compose`)
 
 ### 1. Get the code
     git clone https://github.com/afourmy/flask-gentelella.git
