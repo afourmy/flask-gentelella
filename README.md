@@ -19,8 +19,8 @@ Flask-gentelella also comes with a robust CI/CD pipeline using:
 - [Travis CI](https://travis-ci.org/afourmy/flask-gentelella)
 - [Coverage](https://coveralls.io/github/afourmy/flask-gentelella) to measure the code coverage of the tests.
 - [Selenium](https://www.seleniumhq.org/) to test the application with headless chromium.
-- A Dockerfile showing how to containerize the application with gunicorn, and a [Docker image](https://hub.docker.com/r/afourmy/flask-gentelella/) available on dockerhub, and integrated to the CI/CD pipeline (see instructions below).
-- A `docker-compose` file to start Flask-gentelella with `nginx`, `gunicorn` and a PostgreSQL.
+- A `Dockerfile` showing how to containerize the application with gunicorn, and a [Docker image](https://hub.docker.com/r/afourmy/flask-gentelella/) available on dockerhub, and integrated to the CI/CD pipeline (see instructions below).
+- A `docker-compose` file to start Flask-gentelella with `nginx`, `gunicorn` and a PostgreSQL database.
 
 Here is an example of a real project implemented using Flask-Gentelella:
 - [Online demo](http://afourmy.pythonanywhere.com/)
@@ -33,7 +33,7 @@ This project shows:
 - how to use [Leaflet.js](http://afourmy.pythonanywhere.com/views/geographical_view) for GIS programming.
 - how to use [Flask APScheduler](https://github.com/viniciuschiele/flask-apscheduler) to implement crontab-like features.
 
-# Installation
+## Installation
 
 ### (Optional) Set up a [virtual environment](https://docs.python.org/3/library/venv.html) 
 
@@ -53,14 +53,14 @@ This project shows:
 
 ### 4. Go to http://server_address:5000/, create an account and log in
 
-# Run Flask Gentelella in a docker container in one command
+## Run Flask Gentelella in a docker container in one command
 
 ### 1. Fetch the image on dockerhub
     docker run -d -p 5000:5000 --name gentelella --restart always afourmy/flask-gentelella
 
 ### 2. Go to http://server_address:5000/, create an account and log in
 
-# Run Flask Gentelella with a PostgreSQL database
+## Run Flask Gentelella with a PostgreSQL database
 
 ### 1. Install a PostgreSQL database (Ubuntu)
     apt-get update
@@ -77,7 +77,7 @@ This project shows:
 
 ### 3. Go to http://server_address:5000/, create an account and log in
 
-# Run Flask Gentelella with nginx and a PostgreSQL database with docker-compose
+## Run Flask Gentelella with nginx and a PostgreSQL database with docker-compose
 
 ### `sudo docker-compose pull`
 
@@ -86,4 +86,3 @@ This project shows:
 ### `sudo docker-compose up -d`
 
 ### Go to http://server_address, create an account and log in
-
