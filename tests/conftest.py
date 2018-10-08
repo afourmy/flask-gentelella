@@ -1,3 +1,4 @@
+from config import config_dict
 from pytest import fixture
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -8,7 +9,7 @@ from app import create_app, db
 
 @fixture
 def base_client():
-    app = create_app()
+    app = create_app(config_dict['Debug'])
     app_ctx = app.app_context()
     app_ctx.push()
     db.session.close()
@@ -18,7 +19,7 @@ def base_client():
 
 @fixture
 def user_client():
-    app = create_app()
+    app = create_app(config_dict['Debug'])
     app_ctx = app.app_context()
     app_ctx.push()
     db.session.close()
@@ -34,7 +35,7 @@ def user_client():
 
 @fixture
 def selenium_client():
-    app = create_app(True)
+    app = create_app(config_dict['Debug'], True)
     app_context = app.app_context()
     app_context.push()
     db.session.close()
