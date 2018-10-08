@@ -1,6 +1,7 @@
 version: '3'
 services:
   db:
+    restart: always
     image: postgres:10
     env_file: .env
     expose:
@@ -19,13 +20,16 @@ services:
     depends_on:
       - db
   nginx:
-    image: "nginx:1.13.5"
+    restart: always
+    image: "nginx:latest"
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./conf.d:/etc/nginx/conf.d
     networks:
       - web_network
+    depends_on: 
+      - gentelella
 networks:
   db_network:
     driver: bridge
