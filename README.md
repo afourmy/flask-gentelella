@@ -51,7 +51,7 @@ This project shows:
 ### 4. Run the application
     flask run --host=0.0.0.0
 
-### 4. Go the http://127.0.0.1:5000/
+### 4. Go the http://server_address:5000/
 
 ### 5. Create an account and log in
 
@@ -60,9 +60,21 @@ This project shows:
 ### 1. Fetch the image on dockerhub
     docker run -d -p 5000:5000 --name gentelella --restart always afourmy/flask-gentelella
 
-### 2. Go the http://127.0.0.1:5000/
+### 2. Go the http://server_address:5000/
 
 ### 3. Create an account and log in
+
+# Run Flask Gentelella with a PostgreSQL database
+
+## Install a PostgreSQL database (Ubuntu)
+
+```
+apt-get update
+apt-get install -y postgresql libpq-dev
+sudo -u postgres psql -c "CREATE DATABASE gentelella;"
+sudo -u postgres psql -c "CREATE USER gentelella WITH PASSWORD 'your-password';"
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE gentelella TO gentelella;"
+```
 
 # Run Flask Gentelella with nginx and a PostgreSQL database with docker-compose
 
@@ -71,4 +83,6 @@ This project shows:
 ### `sudo docker-compose build`
 
 ### `sudo docker-compose up -d`
+
+### Go the http://server_address
 
