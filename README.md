@@ -76,7 +76,7 @@ This project shows:
 
 ### 2. Go to http://server_address:5000/, create an account and log in
 
-## Run Flask Gentelella in a docker container with nginx and a PostgreSQL database (`docker-compose`)
+## Run Flask Gentelella in a docker container with nginx and a PostgreSQL database
 
 ### 1. Get the code
     git clone https://github.com/afourmy/flask-gentelella.git
