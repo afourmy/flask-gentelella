@@ -19,11 +19,11 @@ services:
     depends_on:
       - db
   nginx:
-    image: "nginx:latest"
+    image: "nginx:1.13.5"
     ports:
       - "8080:80"
     volumes:
-      - ./nginx:/etc/nginx/conf.d
+      - ./conf.d:/etc/nginx/conf.d
     networks:
       - web_network
 networks:
