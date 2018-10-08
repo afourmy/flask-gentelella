@@ -53,7 +53,7 @@ This project shows:
 
 ### 4. Go to http://server_address:5000/, create an account and log in
 
-## Run Flask Gentelella in a docker container in one command
+## Run Flask Gentelella in a docker container
 
 ### 1. Fetch the image on dockerhub
     docker run -d -p 5000:5000 --name gentelella --restart always afourmy/flask-gentelella
@@ -81,10 +81,7 @@ This project shows:
     git clone https://github.com/afourmy/flask-gentelella.git
     cd flask-gentelella
 
-### 2. `sudo docker-compose pull`
+### 2. Start all services
+    sudo docker-compose pull && sudo docker-compose build && sudo docker-compose up -d
 
-### 3. `sudo docker-compose build`
-
-### 4. `sudo docker-compose up -d`
-
-### Go to http://server_address, create an account and log in
+### 3. Go to http://server_address, create an account and log in
