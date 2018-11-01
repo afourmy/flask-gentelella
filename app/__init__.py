@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
@@ -36,6 +36,33 @@ def configure_logs(app):
     logger.addHandler(StreamHandler())
 
 
+def apply_themes(app):
+    """
+    Add support for themes.
+
+    If DEFAULT_THEME is set then all calls to
+      url_for('static', filename='')
+      will modfify the url to include the theme name
+
+    The theme parameter can be set directly in url_for as well:
+      ex. url_for('static', filename='', theme='')
+
+    The theme folder name should exist in each /static folder of each blueprint
+    """
+    @app.context_processor
+    def override_url_for():
+        return dict(url_for=_generate_url_for_theme)
+
+    def _generate_url_for_theme(endpoint, **values):
+        if endpoint.endswith('static'):
+            filename = values.get('filename', '')
+            themename = values.get('theme', None) or \
+                app.config.get('DEFAULT_THEME', None)
+            if themename:
+                values['filename'] = "{}/{}".format(themename, filename)
+        return url_for(endpoint, **values)
+
+
 def create_app(config, selenium=False):
     app = Flask(__name__, static_folder='base/static')
     app.config.from_object(config)
@@ -45,4 +72,5 @@ def create_app(config, selenium=False):
     register_blueprints(app)
     configure_database(app)
     configure_logs(app)
+    apply_themes(app)
     return app
