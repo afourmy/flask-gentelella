@@ -3,6 +3,7 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
 from logging import basicConfig, DEBUG, getLogger, StreamHandler
+from os import path
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -47,7 +48,9 @@ def apply_themes(app):
     The theme parameter can be set directly in url_for as well:
       ex. url_for('static', filename='', theme='')
 
-    The theme folder name should exist in each /static folder of each blueprint
+    If the file cannot be found in the /static/<theme>/ lcation then
+      the url will not be modified and the file is expected to be
+      in the default /static/ location
     """
     @app.context_processor
     def override_url_for():
@@ -55,11 +58,12 @@ def apply_themes(app):
 
     def _generate_url_for_theme(endpoint, **values):
         if endpoint.endswith('static'):
-            filename = values.get('filename', '')
             themename = values.get('theme', None) or \
                 app.config.get('DEFAULT_THEME', None)
             if themename:
-                values['filename'] = "{}/{}".format(themename, filename)
+                theme_file = "{}/{}".format(themename, values.get('filename', ''))
+                if path.isfile(path.join(app.static_folder, theme_file)):
+                    values['filename'] = theme_file
         return url_for(endpoint, **values)
 
 
