@@ -30,8 +30,8 @@ Here is an example of a real project implemented using Flask-Gentelella:
 This project shows:
 - how back-end and front-end can interact responsively with AJAX requests.
 - how to implement a graph model with SQLAlchemy and use D3.js for [graph visualization](http://afourmy.pythonanywhere.com/views/logical_view).
-- how to implement a [workflow automation](http://afourmy.pythonanywhere.com/workflows/manage_BGP-configuration-workflow) system using Vis.js.
-- how to use [Leaflet.js](http://afourmy.pythonanywhere.com/views/geographical_view) for GIS programming.
+- how to implement a [workflow automation](http://afourmy.pythonanywhere.com/automation/workflow_builder/) system using Vis.js.
+- how to use [Leaflet.js and WebGL-Earth](http://afourmy.pythonanywhere.com/views/geographical_view) for 2D and 3D GIS programming.
 - how to use [Flask APScheduler](https://github.com/viniciuschiele/flask-apscheduler) to implement crontab-like features.
 
 ## Run Flask Gentelella with a SQLite database
