@@ -48,6 +48,7 @@ This project shows:
 ### 3. Set the FLASK_APP environment variable
     (Windows) set FLASK_APP=gentelella.py
     (Unix) export FLASK_APP=gentelella.py
+    (Powershell) $env:FLASK_APP = ".\gentelella.py"
 
 ### 4. Run the application
     flask run --host=0.0.0.0
