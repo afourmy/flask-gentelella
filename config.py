@@ -18,8 +18,6 @@ class ProductionConfig(Config):
     DEBUG = False
 
     # Security
-    SESSION_COOKIE_SECURE = True
-    REMEMBER_COOKIE_SECURE = True
     SESSION_COOKIE_HTTPONLY = True
     REMEMBER_COOKIE_HTTPONLY = True
     REMEMBER_COOKIE_DURATION = 3600
