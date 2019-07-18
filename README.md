@@ -10,7 +10,7 @@
 ![Gentelella Bootstrap Admin Template](https://cdn.colorlib.com/wp/wp-content/uploads/sites/2/gentelella-admin-template-preview.jpg "Gentelella Theme Browser Preview")
 
 This project integrates Gentelella with Flask using: 
-- [Blueprints](http://flask.pocoo.org/docs/0.12/blueprints/) for scalability.
+- [Blueprints](https://flask.palletsprojects.com/en/1.0.x/blueprints/) for scalability.
 - [flask_login](https://flask-login.readthedocs.io/en/latest/) for the login system (passwords hashed with bcrypt).
 - [flask_migrate](https://flask-migrate.readthedocs.io/en/latest/).
 
