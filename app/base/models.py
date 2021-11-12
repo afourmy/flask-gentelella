@@ -1,6 +1,6 @@
 from bcrypt import gensalt, hashpw
 from flask_login import UserMixin
-from sqlalchemy import Binary, Column, Integer, String
+from sqlalchemy import LargeBinary, Column, Integer, String
 
 from app import db, login_manager
 
@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     id = Column(Integer, primary_key=True)
     username = Column(String, unique=True)
     email = Column(String, unique=True)
-    password = Column(Binary)
+    password = Column(LargeBinary)
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():
