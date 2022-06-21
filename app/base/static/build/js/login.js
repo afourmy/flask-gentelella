@@ -14,10 +14,10 @@ function signup() { // eslint-disable-line no-unused-vars
       dataType: 'json',
       data: $('#create-user-form').serialize(),
       success: function(result) {
-        if (result == 'duplicate') {
-          const message = 'Cannot create new user: duplicate entry.';
+        if (result !== 'success') {
+          const message = 'Error: ' + result;
           alertify.notify(message, 'error', 5);
-        } else {
+        }else {
           alertify.notify('New user created.', 'success', 5);
           document.getElementById('login-button').click();
         }
