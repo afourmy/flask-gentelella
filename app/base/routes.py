@@ -18,12 +18,20 @@ def route_default():
     return redirect(url_for('base_blueprint.login'))
 
 
+@blueprint.route('/<path:u_path>')
+def catch_all(u_path):
+    return render_template('errors/page_404.html'), 404
+
+
 @blueprint.route('/<template>')
 @login_required
 def route_template(template):
-    return render_template(template + '.html')
+    try:
+        return render_template(template + '.html')
+    except:
+        return render_template('errors/page_404.html'), 404
 
-
+    
 @blueprint.route('/fixed_<template>')
 @login_required
 def route_fixed_template(template):
